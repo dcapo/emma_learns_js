@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Card Names</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+</head>
+<body>
+    <div id="app">
+        <h1>Name that Card!</h1>
+        <img class="card-logo" :src="getCardIconUrl()"/>
+        <button class="btn btn-default" @click="card = deck.dealCard()">Deal Card</button>
+        <h1>{{ card.toString() }}</h1>
+    </div>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js">
+    </script>
+    <script src="emma.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
