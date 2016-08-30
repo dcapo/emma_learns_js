@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tic Tac Toe!</title>
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"
+        rel="stylesheet"
+        integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1"
+        crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="title">Tic-Tac-Toe!</h1>
+    <div class="grid-wrap">
+        <div id="grid">
+            <div class="row" v-for="(i, row) in grid" track-by="$index">
+                <cell v-for="(j, cell) in grid[i]"
+                    track-by="$index"
+                    @click="onPickCell(i,j)"
+                    :cell="grid[i][j]">
+                </cell>
+            </div>
+        </div>
+    </div>
+    <h1 class="message">{{ message }}</h1>
+    <script type="x/template" id="cellTemplate">
+        <div class="cell">
+            <div v-show="cell.selection === 'X'">X</div>
+            <i class="fa fa-circle-thin" v-show="cell.selection === 'O'"></i>
+        </div>
+    </script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.js">
+    </script>
+    <script src="/emma.js"></script>
+    <script src="/main.js"></script>
+</body>
+</html>
