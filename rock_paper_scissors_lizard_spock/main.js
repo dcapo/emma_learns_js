@@ -13,23 +13,23 @@ new Vue({
         hands: [
             {
                 "name": "Rock",
-                "icon": "/img/rock.png",
+                "icon": "img/rock.png",
             },
             {
                 "name": "Paper",
-                "icon": "/img/paper.png",
+                "icon": "img/paper.png",
             },
             {
                 "name": "Scissors",
-                "icon": "/img/scissors.png",
+                "icon": "img/scissors.png",
             },
             {
                 "name": "Lizard",
-                "icon": "/img/lizard.png",
+                "icon": "img/lizard.png",
             },
             {
                 "name": "Spock",
-                "icon": "/img/spock.png"
+                "icon": "img/spock.png"
             }
         ],
         userHand: { "name": "", "icon": "" },
