@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Giphy Search</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
+        crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"
+            integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0="
+            crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Giphy</h1>
+        <div class="form-group">
+            <input id="searchBar" type="text" class="form-control" placeholder="Enter your search here...">
+        </div>
+        <button id="searchButton" class="btn btn-default">Search Giphy</button>
+        <div id="searchResults"></div>
+    </div>
+
+    <script>
+        document.getElementById("searchButton").onclick = function(e) {
+            document.getElementById("searchResults").innerHTML = '';
+            let search = document.getElementById('searchBar').value;
+            $.get(`http://api.giphy.com/v1/gifs/search?q=${search}&api_key=dc6zaTOxFJmzC`, function(response) {
+                response.data.forEach(gif => {
+                    let img = document.createElement("img");
+                    img.src = gif.images.original.url;
+                    document.getElementById("searchResults").appendChild(img);
+                });
+            });
+        };
+    </script>
+</body>
+</html>
