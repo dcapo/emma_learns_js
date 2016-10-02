@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sum</title>
+  </head>
+  <body>
+
+    <input type="text" id="userNumber" value="" placeholder="Enter number"><br>
+    <input type="radio" id="sum" name="operator" value="sum">Sum<br>
+    <input type="radio" id="product" name="operator" value="product">Product<br>
+    <button type="button" id="submit">Submit</button>
+
+
+    <script type="text/javascript">
+
+      let button = document.getElementById('submit')
+      button.onclick = compute
+
+
+      function compute (){
+          let userNumber = document.getElementById('userNumber').value
+          let sumResult = 0
+          let productResult = 1
+          console.log(userNumber);
+          if (isNaN(userNumber)){
+              alert("Not a number")
+          } else if (document.getElementById("sum").checked){
+                for (var i = 1; i <= userNumber; i++) {
+                sumResult += i
+                }
+            alert (sumResult);
+          } else if (document.getElementById("product").checked){
+                for (var i = 1; i <= userNumber; i++) {
+                productResult *= i
+                }
+            alert (productResult);
+          }
+
+        }
+
+    </script>
+  </body>
+</html>

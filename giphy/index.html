@@ -23,7 +23,31 @@
     </div>
 
     <script>
-        // Write me!
+      function onClick (){
+          document.getElementById("searchResults").innerHTML = ""
+          let searchQuery = document.getElementById("searchBar").value
+          let searchURL = "http://api.giphy.com/v1/gifs/search?q=" + searchQuery + "&api_key=dc6zaTOxFJmzC"
+          $.get(searchURL, function(response){
+              if (response.data.length == 0) {
+                  alert("No results found");
+              } else {
+                    for (i=0; i<response.data.length; i++) {
+                        let imageURL = response.data[i].images.original.url
+                        let gif = document.createElement("img");
+                        gif.src = imageURL;
+                        document.getElementById("searchResults").appendChild(gif);
+                    }
+                }
+
+          })
+
+
+      }
+      let button = document.getElementById("searchButton")
+      button.onclick = onClick
+
+      // http://api.giphy.com/v1/gifs/search?q= &api_key=dc6zaTOxFJmzC
+
     </script>
 </body>
 </html>

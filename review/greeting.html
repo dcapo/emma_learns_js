@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Nice</title>
+  </head>
+  <body>
+
+
+    <p class="greeting">Go away </p>
+    <script type="text/javascript">
+      let userName = prompt("What's your name?")
+      let guestList = ["Henry", "Dan", "Emma"]
+      let guestListTwo = ["Jason", "Casey", "Sam"]
+      //if (guestList.includes(userName)) {
+      function includes (array, entry) {
+        for (var i = 0; i < array.length; i++) {
+          if (array[i] === entry){
+              return true;
+          }
+        }
+        return false;
+      }
+
+      if (includes(guestListTwo, userName)){
+        document.querySelector(".greeting").innerHTML = "Hello " + userName;
+      }
+    </script>
+  </body>
+</html>
