@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Timer</title>
+  </head>
+  <body>
+    <h1>Timer: <span class="counter">0</span></h2>
+    <button id="subtract">-</button>
+    <button id="start">Start</button>
+    <button id="add">+</button>
+
+    <audio id="soundbite" src="http://themushroomkingdom.net/sounds/wav/sm64/sm64_mario_okey-dokey.wav" type="audio/wav" />
+
+    <script   src="https://code.jquery.com/jquery-3.1.1.js"   integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="   crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        let count = 0
+        let counter = document.querySelector('.counter')
+
+        $("#subtract").on("click", function() {
+              if (count > 0) {
+                count--
+                $(".counter").html(count)
+              }
+        })
+
+        $("#add").on("click", function() {
+              count++
+              $(".counter").html(count)
+        })
+
+        $("#start").on("click", function() {
+              $("#subtract, #start, #add").prop("disabled",true);
+              let countdown = setInterval(function(){
+                      if (count > 0){
+                          count -= 1
+                          counter.innerHTML = count
+                      }
+                      if (count === 0){
+                          clearInterval(countdown)
+                          document.getElementById('soundbite').play();
+                          $("#subtract, #start, #add").prop("disabled",false);
+                      }
+                }, 1000);
+
+        })
+
+
+    </script>
+
+  </body>
+</html>
